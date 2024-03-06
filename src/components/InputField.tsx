@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 interface InputFieldProps {
@@ -37,7 +37,9 @@ const InputField: React.FC<InputFieldProps> = ({
         placeholder={`Enter ${label}`}
       />
       {errors[name] && (
-        <p className='text-red-500 text-[10px] mt-1'>{errors[name]?.message}</p>
+        <p className='text-red-500 text-[10px] mt-1'>
+          {(errors[name]?.message || '') as ReactNode}
+        </p>
       )}
     </div>
   );

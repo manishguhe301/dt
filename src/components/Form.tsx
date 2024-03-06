@@ -9,8 +9,17 @@ import { Spinner } from '@chakra-ui/react';
 import { useState } from 'react';
 import Result from './Result';
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  phoneNo: string;
+  email: string;
+  gender: { label: string; value: string };
+  techStack: { label: string; value: string }[];
+}
+
 const Form = () => {
-  const methods = useForm();
+  const methods = useForm<FormData>();
   const { handleSubmit, watch } = methods;
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

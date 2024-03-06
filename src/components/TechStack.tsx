@@ -30,7 +30,6 @@ const TechStack: React.FC<TechStackProps> = ({ options }) => {
             options={options}
             isClearable
             isSearchable
-
           />
         )}
       />
