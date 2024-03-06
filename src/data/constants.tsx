@@ -1,0 +1,47 @@
+export const options = [
+  {
+    label: 'Male',
+    value: 'male',
+  },
+  {
+    label: 'Female',
+    value: 'female',
+  },
+  {
+    label: 'Other',
+    value: 'other',
+  },
+];
+
+export const techStackOptions = [
+  { label: 'React', value: 'react' },
+  { label: 'Angular', value: 'angular' },
+  { label: 'Vue', value: 'vue' },
+  { label: 'Node.js', value: 'nodejs' },
+  { label: 'Next.js', value: 'nextjs' },
+  { label: 'Gatsby', value: 'gatsby' },
+  { label: 'Django', value: 'django' },
+  { label: 'Laravel', value: 'laravel' },
+  { label: 'PHP', value: 'php' },
+  { label: 'Ruby', value: 'ruby' },
+  { label: 'Python', value: 'python' },
+  { label: 'Java', value: 'java' },
+  { label: 'Swift', value: 'swift' },
+  { label: 'Kotlin', value: 'kotlin' },
+  { label: 'Scala', value: 'scala' },
+  { label: 'C#', value: 'c#' },
+  { label: 'C++', value: 'c++' },
+  { label: 'C', value: 'c' },
+  { label: 'Rust', value: 'rust' },
+  { label: 'Elixir', value: 'elixir' },
+  { label: 'Go', value: 'go' },
+  { label: 'Julia', value: 'julia' },
+  { label: 'SwiftUI', value: 'swiftui' },
+  { label: 'Flutter', value: 'flutter' },
+  { label: 'Dart', value: 'dart' },
+  { label: 'Kotlin', value: 'kotlin' },
+  { label: 'Swift', value: 'swift' },
+  { label: 'Ruby', value: 'ruby' },
+  { label: 'Python', value: 'python' },
+  { label: 'GraphQL', value: 'graphql' },
+];
