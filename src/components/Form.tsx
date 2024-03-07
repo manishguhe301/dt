@@ -20,10 +20,9 @@ interface FormData {
 
 const Form = () => {
   const methods = useForm<FormData>();
-  const { handleSubmit, watch } = methods;
+  const { handleSubmit } = methods;
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const formData = watch();
 
   const onSubmit = () => {
     setIsLoading(true);
@@ -34,65 +33,63 @@ const Form = () => {
   };
 
   return (
-    <>
+    <FormProvider {...methods}>
       <div className='w-[70%] max-[768px]:w-[80%] max-sm:w-full h-full bg-[#EAEAEA] p-5 rounded-xl '>
         <h1 className='text-xl font-bold mb-3 '>Basic Details</h1>
-        <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid>
-              <InputField
-                name='firstName'
-                label='First Name'
-                type='text'
-                pattern={/^[A-Za-z]+$/}
-                errorMessage='Name is incorrect'
-              />
-              <InputField
-                name='lastName'
-                label='Last Name'
-                type='text'
-                pattern={/^[A-Za-z]+$/}
-                errorMessage='Name is incorrect'
-              />
-            </Grid>
-            <Grid>
-              <InputField
-                name='phoneNo'
-                label='Phone Number'
-                type='tel'
-                pattern={/^(\+\d{1,3}[- ]?)?\d{10}$/}
-                errorMessage='Phone number is incorrect'
-                defaultValue='+91'
-              />
-              <InputField
-                name='email'
-                label='Email Address'
-                type='email'
-                pattern={/^\S+@\S+\.\S+$/}
-                errorMessage='Email is incorrect'
-              />
-            </Grid>
-            <h1 className='text-xl font-bold mb-3 '>Other Information</h1>
-            <Grid>
-              <SelectComponent options={options} />
-              <DateComponent />
-            </Grid>
-            <Grid>
-              <TechStack options={techStackOptions} />
-            </Grid>
-            <div className='flex justify-end pr-4'>
-              <button
-                type='submit'
-                className='bg-gray-500 hover:bg-gray-400 hover:text-black text-white font-bold py-2 px-4 rounded'
-              >
-                {isLoading ? <Spinner /> : 'Submit'}{' '}
-              </button>
-            </div>
-          </form>
-        </FormProvider>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Grid>
+            <InputField
+              name='firstName'
+              label='First Name'
+              type='text'
+              pattern={/^[A-Za-z]+$/}
+              errorMessage='Name is incorrect'
+            />
+            <InputField
+              name='lastName'
+              label='Last Name'
+              type='text'
+              pattern={/^[A-Za-z]+$/}
+              errorMessage='Name is incorrect'
+            />
+          </Grid>
+          <Grid>
+            <InputField
+              name='phoneNo'
+              label='Phone Number'
+              type='tel'
+              pattern={/^(\+\d{1,3}[- ]?)?\d{10}$/}
+              errorMessage='Phone number is incorrect'
+              defaultValue='+91'
+            />
+            <InputField
+              name='email'
+              label='Email Address'
+              type='email'
+              pattern={/^\S+@\S+\.\S+$/}
+              errorMessage='Email is incorrect'
+            />
+          </Grid>
+          <h1 className='text-xl font-bold mb-3 '>Other Information</h1>
+          <Grid>
+            <SelectComponent options={options} />
+            <DateComponent />
+          </Grid>
+          <Grid>
+            <TechStack options={techStackOptions} />
+          </Grid>
+          <div className='flex justify-end pr-4'>
+            <button
+              type='submit'
+              className='bg-gray-500 hover:bg-gray-400 hover:text-black text-white font-bold py-2 px-4 rounded'
+            >
+              {isLoading ? <Spinner /> : 'Submit'}{' '}
+            </button>
+          </div>
+        </form>
       </div>
-      {isLoading ? null : isSubmitted && <Result data={formData} />}{' '}
-    </>
+      {isLoading ? null : isSubmitted && <Result />}{' '}
+    </FormProvider>
   );
 };
 
